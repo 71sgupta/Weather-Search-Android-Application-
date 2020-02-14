@@ -9,7 +9,7 @@ app.get('/getCity/:city', (req, res) => {
 	var city=req.params['city'];
 	city=urlencode(city);
 	res.header('Access-Control-Allow-Origin', "*");
-	Request.get("https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+city+"&types=(cities)&language=en&key=AIzaSyB0FxzP84Mhvust-4yKwbtGp0txvWVlkxY", (error, response, body) => {
+	Request.get("https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+city+"&types=(cities)&language=en&key=APIKEY", (error, response, body) => {
     if(error) {
         return console.dir(error);
     }
@@ -26,7 +26,7 @@ app.get('/getCity/:city', (req, res) => {
 app.get('/getStateSeal/:state', (req, res) => {
 res.header('Access-Control-Allow-Origin', "*");
 	console.log(req.params['state']);
-	Request.get("https://www.googleapis.com/customsearch/v1?q="+req.params['state']+"%20State%20Seal&cx=011635096530545692752:rjqi2wmc8h0&imgSize=huge&imgType=photo&num=8&searchType=image&key=AIzaSyB0FxzP84Mhvust-4yKwbtGp0txvWVlkxY", (error, response, body) => {
+	Request.get("https://www.googleapis.com/customsearch/v1?q="+req.params['state']+"%20State%20Seal&cx=011635096530545692752:rjqi2wmc8h0&imgSize=huge&imgType=photo&num=8&searchType=image&key=APIKEY", (error, response, body) => {
     if(error) {
         return console.dir(error);
     }
@@ -68,7 +68,7 @@ app.get('/test/:city', (req, res) => {
 	var forecastData;
 	var geocodeData1;
     console.log("hello1");
-	Request.get("https://maps.googleapis.com/maps/api/geocode/json?address="+city+","+street+","+state+"&key=AIzaSyB0FxzP84Mhvust-4yKwbtGp0txvWVlkxY", (error, response, body) => {
+	Request.get("https://maps.googleapis.com/maps/api/geocode/json?address="+city+","+street+","+state+"&key=APIKEY", (error, response, body) => {
     if(error) {
     	//reject(error);
         return console.dir(error);
